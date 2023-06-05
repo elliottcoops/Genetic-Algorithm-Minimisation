@@ -4,20 +4,14 @@ import java.util.Random;
 
 public class Solutions {
 	
-	// Set the domain of what we want to minimise
 	public int domain;
 	public int digitsCount;
+	public int numberOfSolutions;
 	
-	// Set the number of solutions that we want
-	public int numberOfSolutions = 7;
+	Solution[] solutions;
 	
-	// Create an array of solutions
-	Solution[] solutions = new Solution[numberOfSolutions];
-	
-	// Object reference for the objective function
 	ObjectiveFunction objectiveFunction;
 	
-	// Object ref for solutions
 	private static Solutions solutionsObject = null;
 	
 	private Solutions() {}
@@ -42,6 +36,11 @@ public class Solutions {
 	public void setDomain(int val) {
 		this.domain = val;
 		digitsCount = (int) (Math.floor(Math.log(this.domain) / Math.log(2))) + 1; 
+	}
+	
+	public void setNumberOfSolutions(int value) {
+		this.numberOfSolutions = value;
+		solutions = new Solution[numberOfSolutions];
 	}
 	
 	public void printSols() {
@@ -95,11 +94,13 @@ public class Solutions {
 	public void setNewValue(Solution parent, int value) {
 		
 		for (int i = 0; i < numberOfSolutions; i++) {
+			
 			Solution tempSolution = solutions[i];
 			
 			if (tempSolution.equals(parent)) {
 				tempSolution.value = value;
 			} 
+			
 		}
 		
 	}
@@ -111,6 +112,7 @@ public class Solutions {
 		for (int i = 0; i < currentLength-1; i++) {
 			
 			solution = solutions[i];
+			
 			if (solution.value == initalValue)
 				return true;
 			

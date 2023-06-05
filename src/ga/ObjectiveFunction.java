@@ -2,9 +2,11 @@ package ga;
 
 public class ObjectiveFunction {
 	
+	// Set which function we want to minimise
 	public double evaluateExpression(double x) {
 		
-		double value = insaneEquations(x);
+		//double value = insaneEquations(x);
+		double value = logarithmicTrig(x);
 		return value;
 		
 	}

@@ -4,11 +4,8 @@ import java.util.Random;
 
 public class ParentSelection {
 	
-	// Using tournament selection
-	
-	int tournamentSize = 4;
-	
-	Solution[] parents = new Solution[2];
+	int tournamentSize;
+	Solution[] parents;
 	
 	ObjectiveFunction objectiveFunction;
 	Solutions solutions;
@@ -29,6 +26,13 @@ public class ParentSelection {
 		 
 	}
 	
+	public void setTournamentSize(int value) {
+		
+		this.tournamentSize = value;
+		this.parents = new Solution[this.tournamentSize];
+		
+	}
+	
 	public void printTourament(Solution[] t) {
 		for (int i = 0; i < t.length; i++) {
 			System.out.format("%d ", t[i].value);
@@ -40,14 +44,11 @@ public class ParentSelection {
 	public Solution getParent() {
 		
 		Solution[] tournament = new Solution[tournamentSize];
-		Random rand = new Random();
+		Solution[] solutionArr = solutions.getSolutions();
 		Solution candidateSolution = null;
-		
-		
 		int size = solutions.getSize();
 		
-		Solution[] solutionArr = solutions.getSolutions();
-		
+		Random rand = new Random();
 		
 		for (int i = 0; i < tournamentSize; i++) {
 			
@@ -61,14 +62,12 @@ public class ParentSelection {
 			
 		}
 		
-		
 		Solution parent = fitnessFunction(tournament);
-//		printTourament(tournament);
-		
+	
 		return parent;
 		
 	}
-	
+
 	public Boolean checkIfCandidateExists(Solution[] tournmanet, int currentLength, Solution candidate) {
 		
 		if (currentLength == 0)
@@ -85,10 +84,9 @@ public class ParentSelection {
 		return false;
 	}
 	
-	
+	// Find the fittest solution in the tournament
 	public Solution fitnessFunction(Solution[] tournament) {
 		
-		// Pick the best solution from the tournament
 		Solution currentFittest = tournament[0];
 		
 		for (int i = 1; i < tournamentSize; i++) {
