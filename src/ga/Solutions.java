@@ -6,6 +6,7 @@ public class Solutions {
 	
 	// Set the domain of what we want to minimise
 	public int domain = 100;
+	public int digitsCount = (int) (Math.floor(Math.log(domain) / Math.log(2))) + 1; 
 	
 	// Set the number of solutions that we want
 	public int numberOfSolutions = 7;

@@ -14,9 +14,10 @@ public class Crossover {
 	public int newInt_parent1;
 	public int newInt_parent2;
 	
+	Solutions solutions;
 	
-	public Crossover(int parent1, int parent2, int domain) {
-		totalLength = domain;
+	public void setup(int parent1, int parent2) {
+		totalLength = solutions.digitsCount;
 		binaryParent1 = convertToBinaryString(parent1);
 		binaryParent2 = convertToBinaryString(parent2);	
 	}
@@ -30,7 +31,7 @@ public class Crossover {
             binary = remainder + binary;
             parent /= 2;
         }
-		
+				
 		int zerosToPrepend = totalLength - binary.length();
 		
 		for (int i = 0; i < zerosToPrepend; i++) {
@@ -83,9 +84,8 @@ public class Crossover {
 		}
 	}
 	
-	public int convertToInt(String binaryStr, int domain) {
+	public int convertToInt(String binaryStr) {
 		
-		int value = domain;
 		int total = 0;
 		
 		String revstr = new StringBuilder(binaryStr).reverse().toString();
@@ -96,7 +96,7 @@ public class Crossover {
 				total += Math.pow(2, i);
 		}
 		
-		if (total > domain) {
+		if (total > solutions.domain) {
 			Random rand = new Random();
 			total = rand.nextInt(32);
 			

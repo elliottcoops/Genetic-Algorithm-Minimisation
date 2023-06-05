@@ -20,17 +20,17 @@ public class Main {
 		
 		// Initialise the solutions array
 		solutions.addSolutions();
-	
+		
+		int digitsCount = (int) (Math.floor(Math.log(solutions.domain) / Math.log(2))) + 1; 
+		
 		for (int i = 0; i < 1000; i++) {
 			
 			// Parent selection using tournament selection
-			solutions.printSols();
 			Solution[] parents = geneticOperators.parentSelection();
 			
 			// Crossover and mutation
-			int digitsCount = (int) (Math.floor(Math.log(solutions.domain) / Math.log(2))) + 1; 
-			geneticOperators.crossover(parents[0], parents[1], digitsCount, solutions.domain);
-			geneticOperators.mutation(parents[0], parents[1], digitsCount, solutions.domain);
+			geneticOperators.crossover(parents[0], parents[1]);
+			geneticOperators.mutation(parents[0], parents[1], digitsCount);
 			
 			// Set new values
 			solutions.setNewValue(parents[0], geneticOperators.newSolution1);
@@ -40,7 +40,7 @@ public class Main {
 		
 		Solution minimisedValue = solutions.getLowestValue();
 		
-		System.out.format("The minimised value is: %d\n", minimisedValue.value);
+		System.out.format("The minimised of the function is: %d\n", minimisedValue.value);
 		
 	}
 	
