@@ -38,7 +38,9 @@ Let's say we want to minimise a function f(x) = 18.9829 - x * sin(√|x|)
 
 Where this function looks like the below:
 
-[![name](link to image on GH)](link to your URL)
+[![Example graph](graph.png)]
+
+When entering the specific domain into the program, as well as the function, it converges to a set of values as shown below: 
 
 
 
