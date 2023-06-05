@@ -1,1 +1,1 @@
-# Genetic-Alogrithm-Minimization
+# Genetic-Algorithm-Minimization
