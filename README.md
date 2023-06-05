@@ -30,6 +30,16 @@ Consider the scenario where we want to search for a solution in a given search s
 
 Genrally the code written works in the same way. I used bitstings to represent the solutions, this is so when applying crossover or mutation, we can manipulate the solution with the bits or genes individually. For parent selection I used tournament selection, which means that we select the best of n randomly selected parents in the tournment. For crossover I used uniform crossover, which is modifiying the solutions bit by bit using a crossover template, where 0 means swap the two bits, and 1 means keep them the same. 
 
+This process is continued over 1000 generations and the program will converge on a good set of values, where at the end, the fittest one is returend.
+
+### Example
+
+Let's say we want to minimise a function f(x) = 18.9829 - x * sin(√|x|)
+
+Where this function looks like the below:
+
+[![name](link to image on GH)](link to your URL)
+
 
 
 
