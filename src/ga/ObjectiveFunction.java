@@ -5,8 +5,7 @@ public class ObjectiveFunction {
 	// Set which function we want to minimise
 	public double evaluateExpression(double x) {
 		
-		//double value = insaneEquations(x);
-		double value = logarithmicTrig(x);
+		double value = easyFunction(x);
 		return value;
 		
 	}
@@ -22,6 +21,18 @@ public class ObjectiveFunction {
 		total += 2;
 		
 		return total;
+	}
+	
+	public double easyFunction(double x) {
+		
+		// f(x) = 418.9829 - x * sin(sqrt(|x|))
+		// Answer should return 5
+		double total = 18.9829;
+		
+		total -= x * (Math.sin(Math.sqrt(Math.abs(x))));
+		
+		return total;
+		
 	}
 	
 	public double logarithmicTrig(double x) {

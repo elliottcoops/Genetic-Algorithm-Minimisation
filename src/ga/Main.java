@@ -24,17 +24,16 @@ public class Main {
 		geneticOperators.setMutationRate(2);
 		
 		// Set inital population
-		solutions.setNumberOfSolutions(15);
-		solutions.setDomain(60000);
+		solutions.setNumberOfSolutions(20);
+		solutions.setDomain(100);
 		solutions.addSolutions();
 		
-		parentSelection.setTournamentSize(6);
+		parentSelection.setTournamentSize(8);
 		
 		for (int i = 0; i < 10000; i++) {
 			
 			// Parent selection
 			Solution[] parents = geneticOperators.parentSelection();
-			solutions.printSols();
 			
 			// Crossover
 			geneticOperators.crossover(parents[0], parents[1]);
