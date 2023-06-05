@@ -28,7 +28,7 @@ public class GeneticOperators {
 		
 	}
 	
-	public void mutation(Solution parent1, Solution parent2, int digitsToCount) {
+	public void mutation(Solution parent1, Solution parent2) {
 		
 		mutation = new Mutation();
 		mutation.crossover = crossover;

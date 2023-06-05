@@ -96,9 +96,9 @@ public class Crossover {
 				total += Math.pow(2, i);
 		}
 		
-		if (total > solutions.domain) {
+		if (total > solutions.domain || total == 0) {
 			Random rand = new Random();
-			total = rand.nextInt(32);
+			total = rand.nextInt(1,solutions.domain);
 			
 		} 
 		

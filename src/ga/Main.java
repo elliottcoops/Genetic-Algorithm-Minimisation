@@ -7,7 +7,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		Solutions solutions = new Solutions();
+		Solutions solutions = Solutions.getSolutionsObject();
 		GeneticOperators geneticOperators = new GeneticOperators();
 		ParentSelection parentSelection = new ParentSelection();
 		ObjectiveFunction objectiveFunction = new ObjectiveFunction();
@@ -19,18 +19,18 @@ public class Main {
 		geneticOperators.parentSelection = parentSelection;
 		
 		// Initialise the solutions array
+		solutions.setDomain(10);
 		solutions.addSolutions();
-		
-		int digitsCount = (int) (Math.floor(Math.log(solutions.domain) / Math.log(2))) + 1; 
 		
 		for (int i = 0; i < 1000; i++) {
 			
 			// Parent selection using tournament selection
 			Solution[] parents = geneticOperators.parentSelection();
+			solutions.printSols();
 			
 			// Crossover and mutation
 			geneticOperators.crossover(parents[0], parents[1]);
-			geneticOperators.mutation(parents[0], parents[1], digitsCount);
+			geneticOperators.mutation(parents[0], parents[1]);
 			
 			// Set new values
 			solutions.setNewValue(parents[0], geneticOperators.newSolution1);

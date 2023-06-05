@@ -5,8 +5,8 @@ import java.util.Random;
 public class Solutions {
 	
 	// Set the domain of what we want to minimise
-	public int domain = 100;
-	public int digitsCount = (int) (Math.floor(Math.log(domain) / Math.log(2))) + 1; 
+	public int domain;
+	public int digitsCount;
 	
 	// Set the number of solutions that we want
 	public int numberOfSolutions = 7;
@@ -17,12 +17,31 @@ public class Solutions {
 	// Object reference for the objective function
 	ObjectiveFunction objectiveFunction;
 	
+	// Object ref for solutions
+	private static Solutions solutionsObject = null;
+	
+	private Solutions() {}
+	
+	static Solutions getSolutionsObject() {
+		
+		if (solutionsObject == null) {
+			solutionsObject = new Solutions();
+		}
+		
+		return solutionsObject;
+	}
+	
 	public Solution[] getSolutions() {
 		return solutions;
 	}
 	
 	public int getSize() {
 		return numberOfSolutions;
+	}
+	
+	public void setDomain(int val) {
+		this.domain = val;
+		digitsCount = (int) (Math.floor(Math.log(this.domain) / Math.log(2))) + 1; 
 	}
 	
 	public void printSols() {
@@ -37,6 +56,7 @@ public class Solutions {
 	public Solution getLowestValue() {
 		
 		Solution currentLowest = solutions[0];
+		
 		for (int i = 1; i < numberOfSolutions; i++) {
 			
 			if (objectiveFunction.evaluateExpression(solutions[i].value) < objectiveFunction.evaluateExpression(currentLowest.value)) {
@@ -59,9 +79,9 @@ public class Solutions {
 			Solution solution = new Solution();
 			
 			Boolean conflictingValue = true;
-			
-			while (conflictingValue) {
-				initalValue = rand.nextInt(domain);
+			initalValue = 0;
+			while (conflictingValue || initalValue == 0) {
+				initalValue = rand.nextInt(1,domain);
 				conflictingValue = checkConflictingValue(initalValue, i);
 			}
 			
