@@ -34,7 +34,7 @@ This process is continued over 1000 generations and the program will converge on
 
 ### Example
 
-Let's say we want to minimise a function f(x) = 18.9829 - x * sin(√|x|)
+Let's say we want to minimise a function f(x) = 18.9829 - x * sin(√|x|), in the domain 0 <= x <= 100
 
 Where this function looks like the below:
 
