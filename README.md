@@ -1,10 +1,10 @@
-# Genetic-Algorithm-Minimization
+# Genetic-Algorithm-Minimisation
 
 ## What is a genetic algorithm?
 
-A genetic algorithm is an optimization technique inspired by the process of natural selection and genetics, which can be used to solve problems that a traditional iterative process may be inefficient.
+A genetic algorithm is an optimisation technique inspired by the process of natural selection and genetic. It can be used to solve problems where a traditional iterative process may be inefficient.
 
-Consider the scenario where we want to search for a solution in a given search space. We could construct a search tree, however, a tree is seen as a combinatorial explosion, where the number of nodes to search increases exponentially with the number of layers, with a time complexity of O(b^d) where b is the average branching factor, and d is the depth of the tree. This becomes very computationally expensive so we use genetic algorithms, or more generally evolutionary algorithms.
+Consider the scenario where we want to search for a solution in a given search space. We could construct a search tree. However, a search tree is seen as a combinatorial explosion, where the number of nodes to search increases exponentially with the depth of the tree, with a time complexity of O(b^d) where b is the average branching factor, and d is the depth of the tree. This becomes very computationally expensive so we use genetic algorithms, or more generally evolutionary algorithms.
 
 ## Brief walkthrough
 
@@ -26,7 +26,7 @@ Consider the scenario where we want to search for a solution in a given search s
     - Randomly changing individual bits or genes in a given solution, so that we don't prematurely converge 
 
 
-## How does the code work
+## How does the code work?
 
 Generally, the code written works in the same way. I used bitstrings to represent the solutions, this is so when applying crossover or mutation, we can manipulate the solution with the bits or genes individually. For parent selection, I used tournament selection, which means that we select the best of n randomly selected parents in the tournament. For crossover, I used uniform crossover, which is modifying the solutions bit by bit using a crossover template, where 0 means swapping the two bits, and 1 means keeping them the same. There are also different parameters which can be altered, such as tournament size, number of generations, crossover and mutation rate, as well as a few more.
 
