@@ -38,11 +38,11 @@ Let's say we want to minimise a function f(x) = 18.9829 - x * sin(√|x|)
 
 Where this function looks like the below:
 
-[![Example graph](graph.png)]
+![Example graph](graph.png)
 
 When entering the specific domain into the program, as well as the function, it converges to a set of values as shown below: 
 
-[![Example converged solutions](convergedSolutions.png)]
+![Example converged solutions](convergedSolutions.png)
 
 The majority of solutions converged to the actual minimum value +- 3, which is a good approximation. Some didn't, which could be due to the parameters passed into crossover and mutation rate, which is just the proability of applying those genetic operators. In addition, population or tournamanet size could have been a reason as to why these didn't converge, more experimentation can be done in order to get better results in terms of the population converging, but we found an almost perfect solution which is what matters!
 
